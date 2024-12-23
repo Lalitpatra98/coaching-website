@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rapid Institute</title>
+    <link
+      rel="stylesheet"
+      href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+
+    <style>
+      .section{
+        display: none;
+      }
+
+      .section.active{
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-secondary">
+      <!-- left side navbar -->
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Rapid</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Center of navbar -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Courses">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#About">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Contact">Contact</a>
+            </li>
+          </ul>
+
+          <!-- right side navbar -->
+          <div class="" style="display: flex; gap: 1rem">
+            <button class="btn btn-primary">Login</button>
+            <button class="btn btn-primary">Register</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Created section   -->
+     <div id="contain">
+
+      <!-- Home  -->
+      <section id="home" class="section ">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h1>Rapid Institute</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+                quod, voluptates, quae, quibusdam quia quos quidem voluptatum
+                doloremque quas nemo doloribus. Quisquam, quidem. Quisquam
+                voluptates, quae, quibusdam quia quos quidem voluptatum doloremque
+                quas nemo doloribus. Quisquam, quidem.
+              </p>
+              <button class="btn btn-primary">Get Started</button>
+            </div>
+            <div class="col-md-6">
+              
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- Courses section -->
+      <section id="Courses" class="section">
+        <p>this is Courses section</p>
+
+      </section>
+
+      <!-- About section -->
+      <section id="About"  class="section">
+        <p>this is About section</p>
+      </section>
+
+
+      <!-- Contact section -->
+      <section id="Contact" class="section">
+        <p>this is Contact section</p>
+      </section>
+
+     </div>
+
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+      // when the Dom is loading 
+          document.addEventListener('DOMContentLoaded', () => {
+
+            // Take eleements
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Function to show the section based on the hash
+    const showSection = () => {
+      // window.location is property of window that contain information about url of the dom
+
+
+        const hash = window.location.hash || '#home';
+        sections.forEach(section => {
+            section.classList.remove('active');
+        });
+        const activeSection = document.querySelector(hash);
+        if (activeSection) {
+            activeSection.classList.add('active');
+        }
+    };
+
+    // Event listener for navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.hash = link.getAttribute('href');
+            showSection();
+        });
+    });
+    
+
+    // Initial call to show the section based on the current hash
+    showSection();
+});
+    </script>
+  </body>
+</html>
